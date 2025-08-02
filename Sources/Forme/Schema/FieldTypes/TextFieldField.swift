@@ -9,13 +9,13 @@
 import Foundation
 
 struct TextFieldField : FormField{
+ 
+    
     var key: String
     
     var label: String
     
-    func intoFormElement() -> FormElement {
- 
-    }
+    
     
     
 }
