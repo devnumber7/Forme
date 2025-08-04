@@ -9,19 +9,19 @@
 import SwiftUI
 
 public struct TextFieldField: @preconcurrency FormField {
+    
     public let key: String
+    
     public let label: String
+    
     public let placeholder: String
+    
     public let defaultValue: String
+    
     public let validators: [Validator]
 
-    public init(
-        key: String,
-        label: String,
-        placeholder: String = "",
-        defaultValue: String = "",
-        validators: [Validator] = []
-    ) {
+    public init( key: String, label: String, placeholder: String = "",
+                 defaultValue: String = "", validators:[Validator] = []) {
         self.key = key
         self.label = label
         self.placeholder = placeholder
