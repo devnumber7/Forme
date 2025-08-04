@@ -71,10 +71,21 @@ public struct FormView<Content: View>: View {
     /// - Returns: A view representing the form field.
     @ViewBuilder
     private func renderField(_ element: FormElement) -> some View {
-        if let custom = fieldContent {
+        
+        //  Global override from FormRegistry
+        if let registryRenderer = FormRegistry.shared.customRenderer(for: element.id){
+            registryRenderer(element, model)
+        }
+        
+        // Per-FormView override
+        else if let custom = fieldContent {
             custom(element, model)
-        } else {
-            // Default renderer just calls the FormElement's render closure
+        }
+        
+        
+        // Default renderer embedded in FormElement
+        else {
+           
             element.renderView(model: model)
         }
     }
